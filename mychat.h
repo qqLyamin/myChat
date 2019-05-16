@@ -2,6 +2,11 @@
 #define MYCHAT_H
 
 #include <QMainWindow>
+
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QtSql/QSqlTableModel>
+
 #include "signin_signup.h"
 
 namespace Ui {
@@ -19,6 +24,7 @@ public:
 
 private:
     Ui::myChat *ui;
+    QSqlDatabase allclients_db;
 };
 
 #endif // MYCHAT_H

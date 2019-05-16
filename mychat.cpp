@@ -9,6 +9,8 @@ myChat::myChat(QWidget *parent) :
     si_su = new signin_signup();
     si_su->setAttribute(Qt::WA_DeleteOnClose);
     si_su->show();
+
+    allclients_db = QSqlDatabase::addDatabase("QOCI");
 }
 
 myChat::~myChat()
