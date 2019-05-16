@@ -19,14 +19,34 @@
      <x>80</x>
      <y>100</y>
      <width>223</width>
-     <height>95</height>
+     <height>122</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Nickname</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLineEdit" name="client_name"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Password</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLineEdit" name="client_password"/>
@@ -50,7 +70,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="SingInFirstButton">
+       <widget class="QPushButton" name="SignInFirstButton">
         <property name="font">
          <font>
           <pointsize>11</pointsize>
@@ -59,7 +79,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Sing In</string>
+         <string>Sign In</string>
         </property>
        </widget>
       </item>

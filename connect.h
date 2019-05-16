@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class connect;
+class connect2_chat;
 }
 
-class connect : public QDialog
+class connect2_chat : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit connect(QWidget *parent = nullptr);
-    ~connect();
+    explicit connect2_chat(QWidget *parent = nullptr);
+    ~connect2_chat();
 
 private:
-    Ui::connect *ui;
+    Ui::connect2_chat *ui;
 };
 
 #endif // CONNECT_H

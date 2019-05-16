@@ -7,6 +7,7 @@ myChat::myChat(QWidget *parent) :
 {
     ui->setupUi(this);
     si_su = new signin_signup();
+    si_su->setAttribute(Qt::WA_DeleteOnClose);
     si_su->show();
 }
 

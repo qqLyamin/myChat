@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class create;
+class Create_chat;
 }
 
-class create : public QDialog
+class Create_chat : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit create(QWidget *parent = nullptr);
-    ~create();
+    explicit Create_chat(QWidget *parent = nullptr);
+    ~Create_chat();
 
 private:
-    Ui::create *ui;
+    Ui::Create_chat *ui;
 };
 
 #endif // CREATE_H

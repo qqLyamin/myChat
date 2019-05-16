@@ -14,6 +14,8 @@ class registration_form : public QDialog
 public:
     explicit registration_form(QWidget *parent = nullptr);
     ~registration_form();
+public slots:
+    void close_window();
 
 private:
     Ui::registration_form *ui;
