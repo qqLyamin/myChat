@@ -2,7 +2,10 @@
 #define MYCHAT_H
 
 #include <QMainWindow>
+#include <QDebug>
 
+#include <QSqlError>
+#include <QSqlRecord>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlTableModel>
