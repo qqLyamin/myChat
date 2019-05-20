@@ -23,6 +23,8 @@ class myChat : public QMainWindow
 
 public:
     explicit myChat(QWidget *parent = nullptr);
+    void add_newclient(const QString &, const QString &, const QString &) const;
+    bool confirm_entrance(const QString &, const QString &);
     ~myChat();
 
 private:

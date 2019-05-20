@@ -8,6 +8,8 @@ myChat::myChat(QWidget *parent) :
     ui->setupUi(this);
     si_su = new signin_signup();
     si_su->setAttribute(Qt::WA_DeleteOnClose);
+    connect(si_su, &signin_signup::new_user, this, &myChat::add_newclient);
+    connect(si_su, &signin_signup::confirm_entrance, this, &myChat::confirm_entrance);
     si_su->show();
 
     allclients_db = QSqlDatabase::addDatabase("QMYSQL");
@@ -20,6 +22,44 @@ myChat::myChat(QWidget *parent) :
     {
         qDebug() << "db openning error " << allclients_db.lastError().text();
     }
+    else {
+        qDebug() << "Success!";
+    }
+}
+
+void myChat::add_newclient(const QString & name, const QString & password, const QString & email) const
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO clients(name, email, password)" "VALUES(?, ?, ?)");
+    query.addBindValue(name);
+    query.addBindValue(password);
+    query.addBindValue(email);
+    if (query.exec())
+    {
+        qDebug() << "success table";
+    }
+    else {
+        qDebug() << query.lastError().text();
+    }
+}
+
+bool myChat::confirm_entrance(const QString & name, const QString & password)
+{
+    //SELECT COUNT(*) FROM clients WHERE NAME = "qwerty" AND PASSWORD = "qwerty@mail.ru";
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM clients WHERE NAME = (?) AND PASSWORD = (?)");
+    query.addBindValue(name);
+    query.addBindValue(password);
+    if (query.exec())
+    {
+        query.first();
+        qDebug() << query.lastQuery() << "1";
+        int a = query.value(0).toInt();
+        return (bool)a;
+    }
+    qDebug() << query.lastError().text();
+    qDebug() << query.lastQuery() << "2";
+    return false;
 }
 
 myChat::~myChat()

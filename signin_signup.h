@@ -18,6 +18,7 @@ class signin_signup : public QDialog
     QString password;
     registration_form * reg_form;
     create_connect * cre_con;
+    bool got_this_user = 0;
 
 public:
     explicit signin_signup(QWidget *parent = nullptr);
@@ -27,7 +28,9 @@ public slots:
     void set_name_pw(QString);
     void registration_button();
     void signin_button();
-
+signals:
+    void new_user(const QString &, const QString &, const QString &);
+    bool confirm_entrance(const QString &, const QString &);
 private:
     Ui::signin_signup *ui;
 };

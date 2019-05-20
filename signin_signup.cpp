@@ -20,26 +20,30 @@ void signin_signup::set_name_pw(QString str)
     if (sender() == ui->client_name)
     {
         name = str;
-        qDebug() << "name = " << name;
     }
     else {
         password = str;
-        qDebug() << "password = " << password;
     }
-    qDebug() << str << "\t";
 }
 
 void signin_signup::registration_button()
 {
     reg_form = new registration_form();
     reg_form->setAttribute(Qt::WA_DeleteOnClose);//память чистится после закрытия
-    reg_form->setModal(true);//чтобы не могли много раз назать Registration
+    reg_form->setModal(true);//чтобы не могли много раз нажать Registration
+
+    connect(reg_form, &registration_form::new_user, this, &signin_signup::new_user);
     reg_form->show();
 }
 
 void signin_signup::signin_button()
 {
     cre_con = new create_connect();
-    cre_con->show();
-    close();
+    emit got_this_user = signin_signup::confirm_entrance(name, password);
+    qDebug() << got_this_user;
+    if (got_this_user)
+    {
+        cre_con->show();
+        close();
+    }
 }
