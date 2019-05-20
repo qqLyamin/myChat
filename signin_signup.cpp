@@ -45,4 +45,7 @@ void signin_signup::signin_button()
         cre_con->show();
         close();
     }
+    else {
+        QMessageBox::about(this, "error", "there is no user with that options");
+    }
 }
