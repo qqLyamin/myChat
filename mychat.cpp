@@ -45,7 +45,6 @@ void myChat::add_newclient(const QString & name, const QString & password, const
 
 bool myChat::confirm_entrance(const QString & name, const QString & password)
 {
-    //SELECT COUNT(*) FROM clients WHERE NAME = "qwerty" AND PASSWORD = "qwerty@mail.ru";
     QSqlQuery query;
     query.prepare("SELECT COUNT(*) FROM clients WHERE NAME = (?) AND PASSWORD = (?)");
     query.addBindValue(name);
@@ -53,12 +52,9 @@ bool myChat::confirm_entrance(const QString & name, const QString & password)
     if (query.exec())
     {
         query.first();
-        qDebug() << query.lastQuery() << "1";
         int a = query.value(0).toInt();
         return (bool)a;
     }
-    qDebug() << query.lastError().text();
-    qDebug() << query.lastQuery() << "2";
     return false;
 }
 

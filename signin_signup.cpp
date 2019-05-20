@@ -40,7 +40,6 @@ void signin_signup::signin_button()
 {
     cre_con = new create_connect();
     emit got_this_user = signin_signup::confirm_entrance(name, password);
-    qDebug() << got_this_user;
     if (got_this_user)
     {
         cre_con->show();
