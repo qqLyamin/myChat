@@ -8,6 +8,9 @@ signin_signup::signin_signup(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->RegistrationButton, &QPushButton::clicked, this, &signin_signup::registration_button);
     connect(ui->SignInFirstButton, &QPushButton::clicked, this, &signin_signup::signin_button);
+
+    //идем к серверу
+    connect(ui->SignInFirstButton, &QPushButton::clicked, this, &signin_signup::connect_to_server);
 }
 
 signin_signup::~signin_signup()

@@ -24,13 +24,13 @@ public:
     explicit signin_signup(QWidget *parent = nullptr);
     ~signin_signup();
 public slots:
-
     void set_name_pw(QString);
     void registration_button();
     void signin_button();
 signals:
     void new_user(const QString &, const QString &, const QString &);
     bool confirm_entrance(const QString &, const QString &);
+    void connect_to_server();
 private:
     Ui::signin_signup *ui;
 };

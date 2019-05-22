@@ -25,22 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        ../Server/client.cpp \
         connect.cpp \
         create.cpp \
         create_connect.cpp \
         main.cpp \
         mychat.cpp \
-        myclient.cpp \
         mymessage.cpp \
         registration_form.cpp \
         signin_signup.cpp
 
 HEADERS += \
+        ../Server/client.h \
         connect.h \
         create.h \
         create_connect.h \
         mychat.h \
-        myclient.h \
         mymessage.h \
         registration_form.h \
         signin_signup.h

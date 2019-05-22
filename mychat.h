@@ -11,6 +11,7 @@
 #include <QtSql/QSqlTableModel>
 
 #include "signin_signup.h"
+#include "../Server/client.h"
 
 namespace Ui {
 class myChat;
@@ -20,16 +21,16 @@ class myChat : public QMainWindow
 {
     Q_OBJECT
     signin_signup * si_su;
+    Client * client;
 
 public:
     explicit myChat(QWidget *parent = nullptr);
-    void add_newclient(const QString &, const QString &, const QString &) const;
-    bool confirm_entrance(const QString &, const QString &);
     ~myChat();
+signals:
+    bool confirm_entrance(const QString &, const QString &);
 
 private:
     Ui::myChat *ui;
-    QSqlDatabase allclients_db;
 };
 
 #endif // MYCHAT_H
